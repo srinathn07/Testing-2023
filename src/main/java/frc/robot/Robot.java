@@ -14,17 +14,17 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
  * arcade steering.
  */
 public class Robot extends TimedRobot {
-  private final PWMSparkMax m_leftMotor = new PWMSparkMax(0);
-  private final PWMSparkMax m_rightMotor = new PWMSparkMax(1);
-  private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
-  private final Joystick m_stick = new Joystick(0);
+  private final PWMSparkMax leftMotor = new PWMSparkMax(0);
+  private final PWMSparkMax rightMotor = new PWMSparkMax(1);
+  private final DifferentialDrive robotDrive = new DifferentialDrive(leftMotor, rightMotor);
+  private final Joystick LStick = new Joystick(0);
 
   @Override
   public void robotInit() {
     // We need to invert one side of the drivetrain so that positive voltages
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
-    m_rightMotor.setInverted(true);
+    rightMotor.setInverted(true);
   }
 
   @Override
@@ -32,6 +32,6 @@ public class Robot extends TimedRobot {
     // Drive with arcade drive.
     // That means that the Y axis drives forward
     // and backward, and the X turns left and right.
-    m_robotDrive.arcadeDrive(-m_stick.getY(), -m_stick.getX());
+    robotDrive.arcadeDrive(-LStick.getY(), -LStick.getX());
   }
 }
