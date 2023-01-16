@@ -10,5 +10,10 @@
     "types": {
       "/FMSInfo": "FMSInfo"
     }
+  },
+  "NetworkTables": {
+    "Persistent Values": {
+      "open": false
+    }
   }
 }
