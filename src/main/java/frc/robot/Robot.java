@@ -5,26 +5,21 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class. Runs the motors with
  * arcade steering.
  */                                                                            
 public class Robot extends TimedRobot {
-  private final PWMSparkMax leftMotor = new PWMSparkMax(0);
-  private final PWMSparkMax rightMotor = new PWMSparkMax(1);
-  private final DifferentialDrive robotDrive = new DifferentialDrive(leftMotor, rightMotor);
-  private final XboxController xbox = new XboxController(0); 
+
+  Constants cons = new Constants();
 
   @Override
   public void robotInit() {
     // We need to invert one side of the drivetrain so that positive voltages
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
-    rightMotor.setInverted(true);
+    cons.rightMotor.setInverted(true);
   }
 
   @Override
@@ -32,6 +27,6 @@ public class Robot extends TimedRobot {
     // Drive with arcade drive.
     // That means that the Y axis drives forward
     // and backward, and the X turns left and right.
-    robotDrive.arcadeDrive(xbox.getLeftY()*0.85, -xbox.getLeftX()*0.85);
+    cons.robotDrive.arcadeDrive(cons.xbox.getLeftY() * 0.8, -cons.xbox.getLeftX() * 0.85);
   }
 }
