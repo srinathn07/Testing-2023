@@ -34,9 +34,9 @@ public class Robot extends TimedRobot {
     if (cons.xbox.getBButtonPressed() == true) {
       // Gear Shift Logic
       if (speedMultiplier > 0.5) {
-        gear.setSpeedMultiplier(cons.maxSpeed);
+        gear.setSpeedMultiplier(cons.maxMultiplier);
       } else {
-        gear.setSpeedMultiplier(cons.minSpeed);
+        gear.setSpeedMultiplier(cons.minMultiplier);
       }
     }
 

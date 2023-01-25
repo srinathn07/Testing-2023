@@ -4,23 +4,23 @@ public class Gear {
 
     Constants cons = new Constants();
 
-    private double speedMultiplier = cons.maxSpeed;
+    private double speedMultiplier = cons.maxMultiplier;
 
     public double getSpeedMultipier() {
         return speedMultiplier;
     }
 
-    public void setSpeedMultiplier(double speed) {
-        speedMultiplier = validateSpeed(speed);
+    public void setSpeedMultiplier(double multiplier) {
+        speedMultiplier = validateMultiplier(multiplier);
     }
 
-    private double validateSpeed(double speed) {
-        if (speed > cons.maxSpeed) {
-            speed = cons.maxSpeed;
-        } else if (speed < cons.minSpeed) {
-            speed = cons.minSpeed;
+    private double validateMultiplier(double multiplier) {
+        if (multiplier > cons.maxMultiplier) {
+            multiplier = cons.maxMultiplier;
+        } else if (multiplier < cons.minMultiplier) {
+            multiplier = cons.minMultiplier;
         }
-        return speed;
+        return multiplier;
     }
 
 }
